@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prank Hack Kamera - WARNING</title>
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+      overflow: hidden;
+    }
+    #output {
+      white-space: pre-wrap;
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    #warning {
+      color: red;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 30px;
+      display: none;
+      animation: blink 1s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% {opacity: 1;}
+      50% {opacity: 0.3;}
+    }
+    @keyframes blink {
+      0%, 50%, 100% {opacity: 1;}
+      25%, 75% {opacity: 0;}
+    }
+    .flicker {
+      animation: flicker 0.15s infinite;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">[ SYSTEM HACKING IN PROGRESS ]</h1>
+  <div id="output"></div>
+  <div id="warning">!!! WARNING: CAMERA ACCESS GRANTED !!!</div>
+
+  <audio id="alertSound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+
+  <script>
+    const output = document.getElementById('output');
+    const warning = document.getElementById('warning');
+    const alertSound = document.getElementById('alertSound');
+
+    const messages = [
+      "Menginisialisasi koneksi...",
+      "Mencari kamera terdekat...",
+      "Mengeksploitasi celah keamanan...",
+      "Bypassing firewall...",
+      "Mengakses kamera...",
+      "Mengaktifkan kamera...",
+      "Mengambil gambar secara diam-diam...",
+      "Mengirim data ke server...",
+      "Proses selesai."
+    ];
+
+    let index = 0;
+
+    function flickerEffect() {
+      document.body.classList.add('flicker');
+      setTimeout(() => {
+        document.body.classList.remove('flicker');
+      }, 300);
+    }
+
+    function showMessage() {
+      if (index < messages.length) {
+        output.textContent += messages[index] + "\n";
+        flickerEffect();
+        index++;
+        setTimeout(showMessage, 1500);
+      } else {
+        // Tampilkan peringatan dan suara alarm
+        warning.style.display = 'block';
+        alertSound.play();
+        // Tambahkan efek flicker terus menerus
+        document.body.classList.add('flicker');
+      }
+    }
+
+    showMessage();
+  </script>
+</body>
+</html>
